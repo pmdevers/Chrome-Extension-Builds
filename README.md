@@ -3,6 +3,6 @@
 Place you source code in the `src` directory.
 Update `private.pem` with you signing key.
 
-run `build.sh` or `build.bat` based on your os.
+run `build.sh`
 
-out put should be a src.crx
+output should be a src.crx
