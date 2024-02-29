@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
 env:
-  PUSH: false
   TAG: extensionbuilder:$(date +%s)
 jobs:
 
@@ -23,7 +22,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
-        push: $(PUSH)
+        push: false
         tags: $TAG
     - name: Pack Extension
       run: docker run -v .:/app $TAG
