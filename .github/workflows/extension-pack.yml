@@ -18,3 +18,7 @@ jobs:
       run: docker build . --file Dockerfile --tag runner
     - name: run the docker image
       run: docker run -v .:/app runner
+    - uses: actions/upload-artifact@v4
+      with:
+        name: extension
+        path: ./src.crx
