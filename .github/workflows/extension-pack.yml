@@ -15,7 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: ./build.sh
+      run: docker build . -t extensionbuild --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g)
+    - name: Run Pack
+      run: docker run --rm -v .:/app extensionbuild
     - uses: actions/upload-artifact@v4
       with:
         name: extension
